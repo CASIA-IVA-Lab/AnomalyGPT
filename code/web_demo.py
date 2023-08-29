@@ -20,8 +20,7 @@ args = {
     'max_tgt_len': 128,
     'lora_r': 32,
     'lora_alpha': 32,
-    'lora_dropout': 0.1,
-    'layers': [7,15,23,31]
+    'lora_dropout': 0.1
 }
 
 model = OpenLLAMAPEFTModel(**args)
