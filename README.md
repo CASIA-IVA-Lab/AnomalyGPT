@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/License-CC%20BY%20NC%20SA%204.0-red.svg)
 
 <p align="left">
-   🌐 <a href="https://anomalygpt.github.io" target="_blank">Project Page</a> • 🤗 <a href="" target="_blank">Online Demo</a> • 📃 <a href="" target="_blank">Paper</a> • 🤖 <a href="https://huggingface.co/FantasticGNU/AnomalyGPT" target="_blank">Model</a> • 📹 <a href="https://www.youtube.com/watch?v=lcxBfy0YnNA" target="_blank">Video</a>
+   🌐 <a href="https://anomalygpt.github.io" target="_blank">Project Page</a> • 🤗 <a href="https://huggingface.co/spaces/FantasticGNU/AnomalyGPT" target="_blank">Online Demo</a> • 📃 <a href="" target="_blank">Paper</a> • 🤖 <a href="https://huggingface.co/FantasticGNU/AnomalyGPT" target="_blank">Model</a> • 📹 <a href="https://www.youtube.com/watch?v=lcxBfy0YnNA" target="_blank">Video</a>
 </p>
 
 
@@ -117,7 +117,7 @@ After that, you can download AnomalyGPT weights from the table below.
 
 After downloading, put the AnomalyGPT weights in the [./code/ckpt/](./code/ckpt/) directory.
 
-In our [online demo](), we use the supervised setting as our default model to attain an enhanced user experience. You can also try other weights locally.
+In our [online demo](https://huggingface.co/spaces/FantasticGNU/AnomalyGPT), we use the supervised setting as our default model to attain an enhanced user experience. You can also try other weights locally.
 
 <span id='running_demo'/>
 
