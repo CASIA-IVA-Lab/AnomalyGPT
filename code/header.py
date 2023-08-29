@@ -25,7 +25,7 @@ import logging
 from copy import deepcopy
 import ipdb
 import argparse
-import data
+from model.ImageBind import data
 from transformers import LlamaTokenizer, LlamaForCausalLM, LlamaConfig
 from torch.nn.utils.rnn import pad_sequence
 from peft import LoraConfig, TaskType, get_peft_model
