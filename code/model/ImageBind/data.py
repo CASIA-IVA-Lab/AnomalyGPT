@@ -23,7 +23,7 @@ from torchvision.transforms._transforms_video import NormalizeVideo
 
 DEFAULT_AUDIO_FRAME_SHIFT_MS = 10  # in milliseconds
 
-BPE_PATH = "/data/guzhaopeng/PandaGPT/code/model/ImageBind/bpe/bpe_simple_vocab_16e6.txt.gz"
+BPE_PATH = "./model/ImageBind/bpe/bpe_simple_vocab_16e6.txt.gz"
 
 
 def waveform2melspec(waveform, sample_rate, num_mel_bins, target_length):
