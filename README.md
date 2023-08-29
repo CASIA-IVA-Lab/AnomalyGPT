@@ -275,10 +275,7 @@ If you found AnomalyGPT useful in your research or applications, please kindly c
 
 ### Acknowledgments:
 
-We borrow some codes from 
-
-
-This repo benefits from [PandaGPT](https://github.com/yxuansu/PandaGPT), [WinCLIP](https://arxiv.org/abs/2303.14814), and [APRIL-GAN](https://github.com/ByChelsea/VAND-APRIL-GAN). Thanks for their wonderful works!
+We borrow some codes and the pre-trained weights from [PandaGPT](https://github.com/yxuansu/PandaGPT). Thanks for their wonderful work!
 
 
 
