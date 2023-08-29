@@ -4,7 +4,7 @@
 
 # AnomalyGPT: Detecting Industrial Anomalies using Large Vision-Language Models
 
-![License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)
+![License](https://img.shields.io/badge/License-CC%20BY%20NC%20SA%204.0-red.svg)
 
 <p align="left">
    🌐 <a href="https://anomalygpt.github.io" target="_blank">Project Page</a> • 🤗 <a href="" target="_blank">Online Demo</a> • 📃 <a href="" target="_blank">Paper</a> • 🤖 <a href="https://huggingface.co/FantasticGNU/AnomalyGPT" target="_blank">Model</a> • 📹 <a href="https://www.youtube.com/watch?v=lcxBfy0YnNA" target="_blank">Video</a>
@@ -249,7 +249,7 @@ Note that the epoch number can be set in the `epochs` argument at [./code/config
 
 ### License
 
-AnomalyGPT is licensed under the [Apache 2.0 license](./LICENSE).
+AnomalyGPT is licensed under the [CC BY-NC-SA 4.0 license](./LICENSE).
 
 
 ****
