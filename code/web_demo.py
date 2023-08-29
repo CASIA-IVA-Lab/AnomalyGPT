@@ -14,7 +14,7 @@ args = {
     'model': 'openllama_peft',
     'imagebind_ckpt_path': '../pretrained_ckpt/imagebind_ckpt/imagebind_huge.pth',
     'vicuna_ckpt_path': '../pretrained_ckpt/vicuna_ckpt/7b_v0',
-    'anomalygpt_ckpt_path': './ckpt/train_cn/pytorch_model.pt',
+    'anomalygpt_ckpt_path': './ckpt/train_supervised/pytorch_model.pt',
     'delta_ckpt_path': '../pretrained_ckpt/pandagpt_ckpt/7b/pytorch_model.pt',
     'stage': 2,
     'max_tgt_len': 128,
