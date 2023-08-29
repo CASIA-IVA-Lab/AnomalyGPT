@@ -25,3 +25,4 @@ torchaudio==0.13.1
 torchvision==0.14.1
 tqdm==4.64.1
 transformers==4.29.1
+sentencepiece
