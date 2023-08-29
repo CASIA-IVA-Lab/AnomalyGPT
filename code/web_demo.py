@@ -30,7 +30,6 @@ delta_ckpt = torch.load(args['anomalygpt_ckpt_path'], map_location=torch.device(
 model.load_state_dict(delta_ckpt, strict=False)
 model = model.eval().half().cuda()
 
-output = None
 
 """Override Chatbot.postprocess"""
 def postprocess(self, y):
@@ -125,7 +124,7 @@ def predict(
     history.append((input, response))
 
 
-    plt.imshow(pixel_output.reshape(224,224).detach().cpu(), cmap='binary_r')
+    plt.imshow(pixel_output.to(torch.float16).reshape(224,224).detach().cpu(), cmap='binary_r')
     plt.axis('off')
     plt.savefig('output.png',bbox_inches='tight',pad_inches = 0)
 
@@ -154,28 +153,19 @@ def predict(
     eroded_image = cv2.erode(image, kernel, iterations=1)
     cv2.imwrite('output.png', eroded_image)
 
-    global output
     output =  PILImage.open('output.png').convert('L')
 
 
-    return chatbot, history, modality_cache
+    return chatbot, history, modality_cache, output
 
-
-def get_image():
-    global output
-    return output if output else "ffffff.png"
 
 
 def reset_user_input():
     return gr.update(value='')
 
-def reset_dialog():
-    return [], []
 
 def reset_state():
-    global output
-    output = None
-    return None, None, [], [], []
+    return gr.update(value=''), None, None, [], [], [], PILImage.open('ffffff.png')
 
 
 
@@ -187,7 +177,7 @@ with gr.Blocks() as demo:
             with gr.Row(scale=3):
                 image_path = gr.Image(type="filepath", label="Query Image", value=None)
             with gr.Row(scale=3):
-                normal_img_path = gr.Image(type="filepath", label="Normal Image", value=None)
+                normal_img_path = gr.Image(type="filepath", label="Normal Image (optional)", value=None)
             with gr.Row():
                 max_length = gr.Slider(0, 512, value=512, step=1.0, label="Maximum length", interactive=True)
             with gr.Row():
@@ -202,7 +192,7 @@ with gr.Blocks() as demo:
                     chatbot = gr.Chatbot().style(height=415)
                 with gr.Column(scale=4):
                     # gr.Image(output)
-                    image_output = gr.Image(value=get_image, label="Localization Output", every=1.0, shape=[224,224])
+                    image_output = gr.Image(interactive=False, label="Localization Output", every=1.0, shape=[224,224], type='pil',value=PILImage.open('ffffff.png'))
             with gr.Row():
                 user_input = gr.Textbox(show_label=False, placeholder="Input...", lines=10).style(container=False)
             with gr.Row():
@@ -228,19 +218,22 @@ with gr.Blocks() as demo:
         ], [
             chatbot, 
             history,
-            modality_cache
+            modality_cache,
+            image_output
         ],
         show_progress=True
     )
 
     submitBtn.click(reset_user_input, [], [user_input])
     emptyBtn.click(reset_state, outputs=[
+        user_input,
         image_path,
         normal_img_path,
         chatbot, 
         history, 
-        modality_cache
+        modality_cache,
+        image_output
     ], show_progress=True)
 
 
-demo.queue().launch(server_port=24008)
+demo.queue().launch()
