@@ -9,5 +9,5 @@ deepspeed --include localhost:0,1 --master_port 28412 train_all_supervised_cn.py
     --max_tgt_len 1024\
     --data_path  ../data/pandagpt4_visual_instruction_data.json\
     --image_root_path ../data/images/\
-    --save_path  ./ckpt/train_cn7/\
-    --log_path ./ckpt/train_cn7/log_rest/;
+    --save_path  ./ckpt/train_supervised/\
+    --log_path ./ckpt/train_supervised/log_rest/;
