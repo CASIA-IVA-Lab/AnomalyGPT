@@ -4,10 +4,10 @@
 
 # AnomalyGPT: Detecting Industrial Anomalies using Large Vision-Language Models
 
-![License](https://img.shields.io/badge/License-CC%20BY%20NC%20SA%204.0-red.svg)
+![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-red.svg)
 
 <p align="left">
-   🌐 <a href="https://anomalygpt.github.io" target="_blank">Project Page</a> • 🤗 <a href="https://huggingface.co/spaces/FantasticGNU/AnomalyGPT" target="_blank">Online Demo</a> • 📃 <a href="" target="_blank">Paper</a> • 🤖 <a href="https://huggingface.co/FantasticGNU/AnomalyGPT" target="_blank">Model</a> • 📹 <a href="https://www.youtube.com/watch?v=lcxBfy0YnNA" target="_blank">Video</a>
+   🌐 <a href="https://anomalygpt.github.io" target="_blank">Project Page</a> • 🤗 <a href="https://huggingface.co/spaces/FantasticGNU/AnomalyGPT" target="_blank">Online Demo</a> • 📃 <a href="https://arxiv.org/abs/2308.15366" target="_blank">Paper</a> • 🤖 <a href="https://huggingface.co/FantasticGNU/AnomalyGPT" target="_blank">Model</a> • 📹 <a href="https://www.youtube.com/watch?v=lcxBfy0YnNA" target="_blank">Video</a>
 </p>
 
 
@@ -155,7 +155,7 @@ data
 |-----|-----|----- ground_truth
 |-----|-----|----- test
 |-----|-----|----- train
-|-----|-- capsules
+|-----|-- capsule
 |-----|-- ...
 |----VisA
 |-----|-- split_csv
@@ -263,7 +263,7 @@ If you found AnomalyGPT useful in your research or applications, please kindly c
 @article{gu2023anomalyagpt,
   title={AnomalyGPT: Detecting Industrial Anomalies using Large Vision-Language Models},
   author={Gu, Zhaopeng and Zhu, Bingke and Zhu, Guibo and Chen, Yingying and Tang, Ming and Wang, Jinqiao},
-  journal={arXiv preprint arXiv:},
+  journal={arXiv preprint arXiv:2308.15366},
   year={2023}
 }
 ```
