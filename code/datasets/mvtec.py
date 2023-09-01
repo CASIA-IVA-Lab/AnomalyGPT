@@ -191,7 +191,7 @@ class MVtecDataset(Dataset):
 
             conversation_abnormal = conversation_normal
 
-        return origin, conversation_normal, x, conversation_abnormal, class_name, mask
+        return origin, conversation_normal, x, conversation_abnormal, class_name, mask, img_path
 
 
 
@@ -201,20 +201,24 @@ class MVtecDataset(Dataset):
         texts = []
         class_names = []
         masks = []
+        img_paths = []
         for instance in instances:
             images.append(instance[0])
             texts.append(instance[1])
             class_names.append(instance[4])
             masks.append(torch.zeros_like(instance[5]))
+            img_paths.append(instance[6])
 
             images.append(instance[2])
             texts.append(instance[3])
             class_names.append(instance[4])
             masks.append(instance[5])
+            img_paths.append(instance[6])
 
         return dict(
             images=images,
             texts=texts,
             class_names=class_names,
-            masks=masks
+            masks=masks,
+            img_paths=img_paths
         )

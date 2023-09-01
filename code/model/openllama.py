@@ -443,22 +443,18 @@ class OpenLLAMAPEFTModel(nn.Module):
             anomaly_maps = []
             for layer in range(len(patch_tokens)):
                 patch_tokens[layer] = patch_tokens[layer] / patch_tokens[layer].norm(dim=-1, keepdim=True)
-                # print(patch_tokens[layer].shape)
-                # anomaly_map = torch.bmm(patch_tokens[layer], feats_text_tensor.transpose(-2,-1))
                 anomaly_map = (100.0 * patch_tokens[layer] @ feats_text_tensor.transpose(-2,-1))
                 B, L, C = anomaly_map.shape
                 H = int(np.sqrt(L))
                 anomaly_map = F.interpolate(anomaly_map.permute(0, 2, 1).view(B, 2, H, H),
                                             size=224, mode='bilinear', align_corners=True)
-                # anomaly_map_no_softmax = anomaly_map
+
                 anomaly_map = torch.softmax(anomaly_map, dim=1)
-                anomaly_maps.append(anomaly_map)
-                # anomaly_maps_ns.append(anomaly_map_no_softmax)           
+                anomaly_maps.append(anomaly_map)           
 
             gt = inputs['masks']
             gt = torch.stack(gt, dim=0).to(self.device)
             gt = gt.squeeze()
-            # print(gt.max(), gt.min())
             gt[gt > 0.3], gt[gt <= 0.3] = 1, 0
             
 
@@ -476,8 +472,12 @@ class OpenLLAMAPEFTModel(nn.Module):
 
                 normal_paths = []
                 for path in inputs['img_paths']:
-                    normal_path = path.replace('test', 'train')
-                    normal_path = find_first_file_in_directory("/".join(normal_path.split('/')[:-2])+'/good')
+                    if 'visa' in image_paths.lower():
+                        normal_path = path.replace('Anomaly', 'Normal')
+                        normal_path = find_first_file_in_directory("/".join(normal_path.split('/')[:-1]))
+                    else:
+                        normal_path = path.replace('test', 'train')
+                        normal_path = find_first_file_in_directory("/".join(normal_path.split('/')[:-2])+'/good')
                     normal_paths.append(normal_path)
 
                 print(normal_paths)
