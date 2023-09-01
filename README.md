@@ -278,5 +278,7 @@ If you found AnomalyGPT useful in your research or applications, please kindly c
 We borrow some codes and the pre-trained weights from [PandaGPT](https://github.com/yxuansu/PandaGPT). Thanks for their wonderful work!
 
 
+[![Star History Chart](https://api.star-history.com/svg?repos=CASIA-IVA-Lab/AnomalyGPT&type=Date)](https://star-history.com/#CASIA-IVA-Lab/AnomalyGPT&Date)
+
 
  
