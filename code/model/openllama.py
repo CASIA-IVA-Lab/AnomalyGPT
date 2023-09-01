@@ -472,7 +472,7 @@ class OpenLLAMAPEFTModel(nn.Module):
 
                 normal_paths = []
                 for path in inputs['img_paths']:
-                    if 'visa' in image_paths.lower():
+                    if 'all_anomalygpt' not in path and 'visa' in path.lower():
                         normal_path = path.replace('Anomaly', 'Normal')
                         normal_path = find_first_file_in_directory("/".join(normal_path.split('/')[:-1]))
                     else:
