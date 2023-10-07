@@ -438,7 +438,7 @@ class OpenLLAMAPEFTModel(nn.Module):
             class_name = inputs['class_names']
 
             loss_pixel = 0
-            feats_text_tensor = encode_text_with_prompt_ensemble(self.visual_encoder, ['object' for _ in class_name], self.device)
+            feats_text_tensor = encode_text_with_prompt_ensemble(self.visual_encoder, class_name, self.device)
 
             anomaly_maps = []
             for layer in range(len(patch_tokens)):
@@ -534,11 +534,6 @@ class OpenLLAMAPEFTModel(nn.Module):
 
             output_texts = inputs['output_texts']
 
-            c_name = 'object'
-            for name in CLASS_NAMES:
-                if name in output_texts:
-                    c_name = name
-                    break
 
             feats_text_tensor = encode_text_with_prompt_ensemble(self.visual_encoder, ['object'] * len(image_paths), self.device)
 
@@ -602,7 +597,7 @@ class OpenLLAMAPEFTModel(nn.Module):
                 feats_text_tensor = encode_text_with_prompt_ensemble(self.visual_encoder, [c_name], self.device)
             else:
                 image_embeds, _, patch_tokens = self.encode_image_for_web_demo(inputs['image_paths'])
-                feats_text_tensor = encode_text_with_prompt_ensemble(self.visual_encoder, ['object'], self.device)
+                feats_text_tensor = encode_text_with_prompt_ensemble(self.visual_encoder, [c_name], self.device)
 
             anomaly_maps = []
             for layer in range(len(patch_tokens)):
