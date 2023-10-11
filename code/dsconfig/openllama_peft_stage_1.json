@@ -39,8 +39,8 @@
     "params": {
       "warmup_min_lr": 0,
       "warmup_max_lr": 0.001,
-      "warmup_num_steps": 100,
-      "total_num_steps": 20000
+      "warmup_num_steps": 10,
+      "total_num_steps": 10000
     }
   },
   "activation_checkpointing": {
