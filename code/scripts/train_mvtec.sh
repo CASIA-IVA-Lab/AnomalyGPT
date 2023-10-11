@@ -1,6 +1,6 @@
 #!/bin/bash
 
-deepspeed --include localhost:5,7 --master_port 28400 train_mvtec.py \
+deepspeed --include localhost:0,1 --master_port 28400 train_mvtec.py \
     --model openllama_peft \
     --stage 1\
     --imagebind_ckpt_path ../pretrained_ckpt/imagebind_ckpt/imagebind_huge.pth\
