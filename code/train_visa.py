@@ -73,13 +73,13 @@ def main(**args):
     train_data_sft, train_iter_sft, sampler = load_sft_dataset(args)
 
     length = args['epochs'] * len(train_data) // args['world_size'] // dschf.config['train_micro_batch_size_per_gpu']
-    total_steps = args['epochs'] * len(train_data) // dschf.config['train_batch_size']
+    total_steps = 2 * args['epochs'] * len(train_data) // dschf.config['train_batch_size']
     args['total_steps'] = total_steps
     agent = load_model(args)
     torch.distributed.barrier()
 
     # begin to train
-    pbar = tqdm(total=length)    # maximum total number
+    pbar = tqdm(total= 2 * length)    # maximum total number
     current_step = 0
     for epoch_i in tqdm(range(args['epochs'])):
         iter_every_epoch = 0
